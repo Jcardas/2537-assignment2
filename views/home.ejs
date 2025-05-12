@@ -1,0 +1,35 @@
+<!-- Header calling Tailwind CSS -->
+<%- include("templates/header") %>
+
+    <!-- Body -->
+    <div class="flex flex-col h-screen justify-between">
+        <header>
+            <%- include("templates/navbar") %>
+        </header>
+        <main class="mb-auto">
+            <div class="container grow justify-center mx-auto px-4">
+                <h1 class="text-3xl font-bold text-center mt-10">Welcome to the Home Page</h1>
+                <% if (name) { %>
+                    <p class="text-center mt-4">Hello, <%= name %>!</p>
+                    <div class="mt-10 flex justify-center gap-4">
+                        <a href="/members" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Members Area</a>
+                        <a href="/logout" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Logout</a>
+                    </div>
+                    <% } else { %>
+                        <p class="text-center mt-4">Sign up or log in to see more!</p>
+                        <div class="mt-10">
+                            <div class="flex justify-center gap-4">
+                                <a href="/signup"
+                                    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Sign Up</a>
+                                <a href="/login"
+                                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Log In</a>
+                            </div>
+                        </div>
+                        <% } %>
+            </div>
+        </main>
+        <!-- Footer Template -->
+        <footer>
+            <%- include("templates/footer") %>
+        </footer>
+    </div>

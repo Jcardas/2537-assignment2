@@ -1,0 +1,29 @@
+<!-- Header calling Tailwind CSS -->
+<%- include("templates/header") %>
+
+    <!-- Body -->
+    <div class="flex flex-col h-screen justify-between">
+        <header>
+            <%- include("templates/navbar") %>
+        </header>
+        <main class="mb-auto">
+            <div class="container grow justify-center mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center mt-10">Members Area</h1>
+            <p class="text-center mt-4">Welcome, <%= name %>, to the exclusive members-only section!</p>
+            <div class="mt-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <img class="object-cover object-center rounded-lg shadow-xl h-auto shadow-blue-gray-900/50"
+                    src="/images/image1.jpg" alt="Image 1" />
+                <img class="object-cover object-center rounded-lg shadow-xl h-auto shadow-blue-gray-900/50"
+                    src="/images/image2.jpg" alt="Image 2" />
+                <img class="object-cover object-center rounded-lg shadow-xl h-auto shadow-blue-gray-900/50"
+                    src="/images/image3.jpg" alt="Image 3" />
+                </div>
+            </div>
+            </div>
+        </main>
+        <!-- Footer Template -->
+        <footer>
+            <%- include("templates/footer") %>
+        </footer>
+    </div>

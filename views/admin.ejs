@@ -1,0 +1,55 @@
+<!-- Header calling Tailwind CSS -->
+<%- include("templates/header") %>
+
+    <!-- Body -->
+    <div class="flex flex-col h-screen justify-between">
+        <header>
+            <%- include("templates/navbar") %>
+        </header>
+        <main class="mb-auto">
+            <div class="container grow justify-center mx-auto px-4">
+                <h1 class="text-3xl font-bold text-center mt-10">Admin Page</h1>
+                <table class="table-auto w-full mt-6 border-collapse border border-gray-300">
+                    <thead>
+                        <tr>
+                            <th class="border border-gray-300 px-4 py-2">Username</th>
+                            <th class="border border-gray-300 px-4 py-2">Role</th>
+                            <th class="border border-gray-300 px-4 py-2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < users.length; i++) { %>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">
+                                    <%= users[i].name %>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-2">
+                                    <%= users[i].user_type %>
+                                </td>
+                                <td class="text-center border-gray-300 px-4 py-2 w-1/3">
+                                    <% if (users[i].user_type==='user' ) { %>
+                                        <form action="/admin/promote/<%= users[i]._id %>" method="POST" class="inline">
+                                            <button type="submit"
+                                                class="bg-red-500 text-white px-4 py-2 rounded w-full">Promote to
+                                                Admin</button>
+                                        </form>
+                                        <% } else { %>
+                                            <form action="/admin/demote/<%= users[i]._id %>" method="POST"
+                                                class="inline">
+                                                <button type="submit"
+                                                    class="bg-green-500 text-white px-4 py-2 rounded w-full">Demote to
+                                                    User</button>
+                                            </form>
+                                            <% } %>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <!-- Footer Template -->
+        <footer>
+            <%- include("templates/footer") %>
+        </footer>
+    </div>
